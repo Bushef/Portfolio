@@ -7,6 +7,26 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" >
     <title>About Me</title>
+    <script src="https://ajax.aspnetcdn.com/ajax.jQuery/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function (){
+            $("#btn_submit").click(function () {
+                var formData = {fname: $("#fname").val(), lname: $("#lname").val() }
+                $.ajax({
+                    contentType: 'application/json',
+                    type: "POST",
+                        url: "https://prod-122.westeurope.logic.azure.com:443/workflows/bf4ddad10cfa4760a4c6fe70fcf2f715/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=F8YBZF38c5P7WS8ohxtEpvf-1n5QuG0L-R6Dij9eQDs",
+                        data: JSON.stringify(formData),
+                    success: function () {
+                        $("postResult").val("Success");
+                    },
+                    error: function () {
+                        $("#postResult").val("Failed");
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="about-wrapper"> 
