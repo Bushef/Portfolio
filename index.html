@@ -18,7 +18,7 @@
                         url: "https://prod-122.westeurope.logic.azure.com:443/workflows/bf4ddad10cfa4760a4c6fe70fcf2f715/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=F8YBZF38c5P7WS8ohxtEpvf-1n5QuG0L-R6Dij9eQDs",
                         data: JSON.stringify(formData),
                     success: function () {
-                        $("postResult").val("Success");
+                        $("#postResult").val("Success");
                     },
                     error: function () {
                         $("#postResult").val("Failed");
